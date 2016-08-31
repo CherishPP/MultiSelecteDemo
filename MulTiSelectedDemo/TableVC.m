@@ -26,7 +26,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.datas = [NSMutableArray array];
-//    [self loadBtns];
+    [self loadBtns];
 }
 
 - (void)loadBtns{
@@ -58,16 +58,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell * cell = [TableViewCell cellWithTableView:tableView];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    CellModel * model = self.datas[indexPath.row];
-//    cell.model = model;
+    CellModel * model = self.datas[indexPath.row];
+    cell.model = model;
     [cell setBtnClickHandler:^(TableViewCell *cell, UIButton *sender,BOOL clicked) {
         if (clicked) {
-            sender.backgroundColor = [UIColor redColor];
-//            model.isCliked = YES;
+//            sender.backgroundColor = [UIColor redColor];
+            model.isCliked = YES;
         }else
-            sender.backgroundColor = [UIColor whiteColor];
-//            model.isCliked = NO;
-//        [self.tableView reloadData];
+//            sender.backgroundColor = [UIColor whiteColor];
+            model.isCliked = NO;
+        [self.tableView reloadData];
     }];
     
     
